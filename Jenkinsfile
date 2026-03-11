@@ -22,7 +22,9 @@ pipeline {
 
     post {
         always {
-            allure includeProperties: false, results: [[path: 'target/allure-results']]
+            allure commandline: 'Allure',
+                   includeProperties: false,
+                   results: [[path: 'target/allure-results']]
         }
     }
 }
