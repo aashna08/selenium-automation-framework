@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/yourusername/automation-framework.git'
+                git 'https://github.com/aashna08/selenium-automation-framework.gitgit '
             }
         }
 
