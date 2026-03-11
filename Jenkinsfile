@@ -18,12 +18,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
+    }
 
-        stage('Generate Allure Report') {
-            steps {
-                allure includeProperties: false, results: [[path: 'target/allure-results']]
-            }
+    post {
+        always {
+            allure includeProperties: false, results: [[path: 'target/allure-results']]
         }
-
     }
 }
