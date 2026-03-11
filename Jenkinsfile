@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/aashna08/selenium-automation-framework.gitgit '
-            }
-        }
-
         stage('Build Project') {
             steps {
                 sh 'mvn clean compile'
@@ -27,8 +21,9 @@ pipeline {
 
         stage('Generate Allure Report') {
             steps {
-                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
+                allure includeProperties: false, results: [[path: 'target/allure-results']]
             }
         }
+
     }
 }
