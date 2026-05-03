@@ -1,21 +1,14 @@
-package tests;
+package tests.Ecommerce;
 import base.BaseTest;
 import dataprovider.TestDataProvider;
 import io.qameta.allure.Allure;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.*;
 import org.testng.annotations.Listeners;
 import Listeners.AllureFailureListener;
+import pages.Ecommerce.*;
 
-import java.time.Duration;
 @Listeners({
         io.qameta.allure.testng.AllureTestNg.class,
         AllureFailureListener.class
@@ -230,9 +223,10 @@ public class RegisterUser extends BaseTest {
         Assert.assertTrue(homepage.isSubscriptionSuccessMsgVisible(),
                 "Subscription success message not visible"
                 );
-        Assert.fail("Failing test case");
         Allure.step("========== END: ADD Subscription ==========");
     }
+
+
 }
 
 

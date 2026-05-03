@@ -9,15 +9,35 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class DriverFactory {
+public class DriverFactory_Singleton {
 
-    public static WebDriver createDriver() {
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-        String browser=System.getProperty("browser");
-        if(browser==null)
-        {
+    private DriverFactory_Singleton() {
+        // private constructor to prevent object creation
+    }
+
+    public static WebDriver getDriver() {
+        if (driver.get() == null) {
+            driver.set(createDriver());
+        }
+        return driver.get();
+    }
+
+    public static WebDriver getDriver1()
+    {
+        return driver.get();
+    }
+
+
+
+    private static WebDriver createDriver() {
+
+        String browser = System.getProperty("browser");
+        if (browser == null) {
             browser = ConfigReader.get("browser").toLowerCase();
         }
+
         boolean headless = Boolean.parseBoolean(ConfigReader.get("headless"));
 
         switch (browser) {
@@ -47,10 +67,14 @@ public class DriverFactory {
                 return new EdgeDriver(edgeOptions);
 
             default:
-                throw new IllegalArgumentException(
-                        "Unsupported browser: " + browser
-                );
+                throw new IllegalArgumentException("Unsupported browser: " + browser);
+        }
+    }
+
+    public static void quitDriver() {
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove(); // very important to avoid memory leaks
         }
     }
 }
-

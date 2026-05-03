@@ -35,12 +35,15 @@ public class WaitUtils {
         );
     }
 
-    public void waitForUrlContains(String text) {
-        wait.until(ExpectedConditions.urlContains(text));
+    public Boolean waitForUrlContains(String text) {
+        return wait.until(ExpectedConditions.urlContains(text));
     }
 
     public WebElement waitForClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
+
     }
+
+
 }
 

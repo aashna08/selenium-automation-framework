@@ -1,21 +1,17 @@
-package tests;
+package tests.Ecommerce;
 
 import base.BaseTest;
 import dataprovider.TestDataProvider;
 import io.qameta.allure.Allure;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import io.restassured.RestAssured;
+import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.SignupLoginPage;
+import pages.Ecommerce.HomePage;
+import pages.Ecommerce.SignupLoginPage;
 
-import java.time.Duration;
+import java.util.List;
 
 public class LoginTest extends BaseTest {
     private HomePage homepage;
@@ -114,5 +110,14 @@ public class LoginTest extends BaseTest {
         );
         logger.info("User logged out successfully");
         logger.info("========== END Log Out Test ==========");
+
+        RequestSpecification r= RestAssured.given();
+        r.when().log().all().get();
+        Response res= r.when().log().all().get();
+        JsonPath jp=new JsonPath(res.asString);
+        List<Integer> ids=jp.getList("id");
+        ids.size();
+        System.out.println(ids);
+
     }
 }

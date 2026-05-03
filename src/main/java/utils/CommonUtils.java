@@ -1,6 +1,7 @@
 package utils;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -84,6 +85,39 @@ public class CommonUtils {
 
     public List<WebElement> getAllElements(By locator) {
         return waitUtils.waitForAllElementsVisible(locator);
+    }
+
+    public void selectByValue(By locator, String value) {
+        Select select = new Select(waitUtils.waitForVisibility(locator));
+        select.selectByValue(value);
+    }
+
+    public void selectByIndex(By locator, int index) {
+        Select select = new Select(waitUtils.waitForVisibility(locator));
+        select.selectByIndex(index);
+    }
+
+    public void selectByVisibleText(By locator, String text) {
+        Select select = new Select(waitUtils.waitForVisibility(locator));
+        select.selectByVisibleText(text);
+    }
+
+    public void switchToNewWindow() {
+
+        String parentWindow = driver.getWindowHandle();
+
+        for (String window : driver.getWindowHandles()) {
+            if (!window.equals(parentWindow)) {
+                driver.switchTo().window(window);
+                break;
+            }
+        }
+    }
+
+    public void switchToParentWindow() {
+
+        String parentWindow = driver.getWindowHandles().iterator().next();
+        driver.switchTo().window(parentWindow);
     }
 
 

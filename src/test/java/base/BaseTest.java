@@ -22,7 +22,14 @@ public class BaseTest {
 
         driver = DriverFactory.createDriver();
         driver.manage().window().maximize();
-        driver.get(ConfigReader.get("baseUrl"));
+        String customer=ConfigReader.get("customer");
+        if (customer.equalsIgnoreCase("amazon"))
+        {
+            driver.get(ConfigReader.get("amazonBaseUrl"));
+        }
+        else {
+            driver.get(ConfigReader.get("baseUrl"));
+        }
     }
 
     public WebDriver getDriver() {

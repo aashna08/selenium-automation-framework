@@ -1,14 +1,12 @@
-package tests;
+package tests.Ecommerce;
 
 import base.BaseTest;
 import dataprovider.TestDataProvider;
 import io.qameta.allure.Allure;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.*;
+import pages.Ecommerce.*;
 
 import java.util.List;
 

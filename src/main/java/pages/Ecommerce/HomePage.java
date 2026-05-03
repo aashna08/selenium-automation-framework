@@ -1,13 +1,10 @@
-package pages;
+package pages.Ecommerce;
 
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.CommonUtils;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.JavaScriptUtils;
 
@@ -66,13 +63,10 @@ public class HomePage {
         return By.xpath(String.format(CATEGORY_RESULT, expectedText));
     }
 
-
-
     public void clickSignupLogin() {
         logger.info("Clicking Signup/Login link");
         utils.click(signupLoginLink);
     }
-
     public void clickProducts() {
         logger.info("Clicking on Products link");
         utils.click(productsLink);
@@ -82,37 +76,30 @@ public class HomePage {
         logger.info("Clicking on Cart link");
         utils.click(cartLink);
     }
-
     public void clickContactUs() {
         logger.info("Clicking Contact Us link");
         utils.click(contactLink);
     }
-
     public void clickTestCases() {
         logger.info("Clicking Test Cases link");
         utils.click(testCasesLink);
     }
-
     public Boolean verifyHomePage() {
         logger.info("Verifying Home page is displayed");
         return utils.getText(homeLink).contains("Home");
     }
-
     public boolean isUserLoggedIn(String userName) {
         logger.info("Verifying user is logged in as: {}", userName);
         return utils.getText(loggedInUser).contains(userName);
     }
-
     public void clickLogout() {
         logger.info("Logging out current user");
         utils.click(logoutBtn);
     }
-
     public void deleteAccount() {
         logger.info("Deleting user account");
         utils.click(deleteAccount);
     }
-
     public Boolean verifySubscriptionHeader()
     {
         logger.info("Verifying Subscription Header");
@@ -120,7 +107,6 @@ public class HomePage {
         logger.debug("Subscription Header "+utils.getText(SubscriptionHeader));
         return utils.getText(SubscriptionHeader).contains("Subscription");
     }
-
     public void addSubscription()
     {
         logger.info("Adding Subscription");

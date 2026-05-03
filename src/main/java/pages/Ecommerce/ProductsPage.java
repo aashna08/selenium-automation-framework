@@ -1,11 +1,10 @@
-package pages;
+package pages.Ecommerce;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.CommonUtils;
 import utils.JavaScriptUtils;
 
@@ -26,7 +25,7 @@ public class ProductsPage {
     private By productBrand=By.xpath("//b[text()='Brand:']/parent::p");
     private By searchInput=By.id("search_product");
     private By searchBtn=By.id("submit_search");
-    private By productNames=By.xpath(".//p");
+    private By productNames=By.xpath("//div[@class='single-products']/div[@class='productinfo text-center']/p");
     private By allProducts=By.xpath("//div[@class='productinfo text-center']");
     private By productPrices = By.xpath(".//h2");
     private By addToCartBtn = By.xpath(".//*[text()='Add to cart']");

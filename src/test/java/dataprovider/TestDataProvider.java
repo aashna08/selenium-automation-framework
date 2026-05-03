@@ -87,6 +87,14 @@ public class TestDataProvider {
         };
     }
 
+    @DataProvider(name = "amazonData")
+    public static Object[][] amazonData()
+    {
+        return new Object[][]{
+                {"HP Smart Tank 589",2}
+        };
+    }
+
 
 
 

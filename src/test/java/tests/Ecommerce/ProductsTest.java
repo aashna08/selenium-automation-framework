@@ -1,4 +1,4 @@
-package tests;
+package tests.Ecommerce;
 
 import base.BaseTest;
 import dataprovider.TestDataProvider;
@@ -6,9 +6,8 @@ import io.qameta.allure.Allure;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.ProductsPage;
-import pages.SignupLoginPage;
+import pages.Ecommerce.HomePage;
+import pages.Ecommerce.ProductsPage;
 
 public class ProductsTest extends BaseTest {
 
